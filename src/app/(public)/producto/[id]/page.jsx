@@ -1,5 +1,5 @@
 'use client'
-import {useState, useEffect, use} from "react";
+import {useState, useEffect} from "react";
 import {useParams} from "next/navigation";
 import {useCarritoGlobal} from "@/ContextosGlobales/CarritoContext";
 import {toast} from "react-hot-toast";
@@ -14,7 +14,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import {number} from "zod";
 import ToasterClient from "@/Componentes/ToasterClient";
 import Link from "next/link";
 
@@ -100,7 +99,7 @@ export default function ProductoDetalle() {
                 mode: 'cors'
             });
             if (!res.ok) {
-                return alert("No se ha podido renderizar el producto seleccionado, porfavor conatcte a soporte TI de NativeCode.cl")
+                return alert("No se pudo cargar el producto seleccionado. Intenta nuevamente más tarde.")
             } else {
                 const dataSeleccion = await res.json();
                 setdataProductoSeleccionado(dataSeleccion);
@@ -151,7 +150,7 @@ export default function ProductoDetalle() {
 
     async function seleccinarProductosporSubSubCategoria(subsubcategoria){
         try {
-            const res = await fetch(`${API}/producto/seleccionarPorSubSubcategoria `, {
+            const res = await fetch(`${API}/producto/seleccionarPorSubSubcategoria`, {
                 method: "POST",
                 headers: {Accept: 'application/json',
                     'Content-Type' : 'application/json'},

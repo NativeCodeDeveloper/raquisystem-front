@@ -1,54 +1,47 @@
 import "./globals.css";
 import { AnimatedLayout } from "@/Componentes/AnimatedLayout";
 import AgendaProvider from "@/ContextosGlobales/AgendaContext";
-import { Inter, Lato, Michroma, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Outfit } from "next/font/google";
 
-const montserrat = Montserrat({
+const geistSans = Geist({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-geist-sans",
 });
 
-const lato = Lato({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-lato",
-  weight: ["300", "400", "700"],
+  variable: "--font-geist-mono",
 });
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["300", "400", "500", "600"],
-});
-
-const michroma = Michroma({
-  subsets: ["latin"],
-  variable: "--font-michroma",
+  variable: "--font-outfit",
   weight: ["400"],
 });
 
 export const metadataBase = new URL(
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.ortegaschmuck.cl"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.revitalizepro.cl"
 );
 
 export const metadata = {
   title: {
-    default: "Ortega & Schmuck | Clínica Dental Premium",
-    template: "%s | Ortega & Schmuck",
+    default: "Revitalize Pro | Rehabilitación Integral y Regeneración",
+    template: "%s | Revitalize Pro",
   },
   description:
-    "Sitio oficial de Ortega & Schmuck. Odontología clínica integral con tecnología avanzada y planes personalizados.",
+    "Centro clínico especializado en rehabilitación integral, manejo del dolor, terapias complementarias y regeneración de tejidos en Providencia, Santiago.",
   keywords: [
-    "Ortega & Schmuck",
-    "clinica dental",
-    "odontologia integral",
-    "rehabilitacion oral",
-    "diseno de sonrisa",
-    "implantes dentales",
-    "clinica premium",
+    "Revitalize Pro",
+    "rehabilitación integral",
+    "dolor crónico",
+    "postquirúrgico",
+    "terapias complementarias",
+    "regeneración de tejidos",
+    "presoterapia",
+    "Providencia",
   ],
-  authors: [{ name: "Ortega & Schmuck", url: metadataBase.href }],
-  publisher: "Ortega & Schmuck",
+  authors: [{ name: "Revitalize Pro", url: metadataBase.href }],
+  publisher: "Revitalize Pro",
   robots: {
     index: true,
     follow: true,
@@ -60,25 +53,25 @@ export const metadata = {
     canonical: metadataBase.href,
   },
   openGraph: {
-    title: "Ortega & Schmuck | Clínica Dental Premium",
+    title: "Revitalize Pro | Rehabilitación Integral y Regeneración",
     description:
-      "Experiencia clínica premium con enfoque integral en odontología y rehabilitación oral.",
+      "Abordaje clínico personalizado para dolor, disfunción y alteraciones del tejido.",
     url: metadataBase.href,
-    siteName: "Ortega & Schmuck",
+    siteName: "Revitalize Pro",
     locale: "es_CL",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ortega & Schmuck",
+    title: "Revitalize Pro",
     description:
-      "Odontología clínica premium con protocolos personalizados.",
+      "Rehabilitación integral y terapias regenerativas con enfoque clínico.",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${montserrat.variable} ${lato.variable} ${inter.variable} ${michroma.variable}`}>
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable}`}>
       <body className="min-h-screen bg-white">
         <AnimatedLayout>
           <AgendaProvider>{children}</AgendaProvider>

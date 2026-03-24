@@ -1,169 +1,142 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock3, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
 
-const footerLinks = [
+const companyLinks = [
   { label: "Inicio", href: "/#inicio" },
-  { label: "Servicios", href: "/#servicios" },
-  { label: "Casos clinicos", href: "/#casos-clinicos" },
-  { label: "Agenda", href: "/reserva-hora" },
+  { label: "Sobre el profesional", href: "/mision-y-vision" },
+  { label: "Nuestros servicios", href: "/servicios" },
+  { label: "Términos y condiciones", href: "/terminosCondiciones" },
+];
+
+const helpLinks = [
+  { label: "Agenda online", href: "/agendaProfesionales" },
   { label: "Contacto", href: "/contacto" },
+  { label: "WhatsApp directo", href: "https://wa.me/56928085737", external: true },
+  {
+    label: "Ubicación",
+    href: "https://maps.google.com/?q=Avenida+Nueva+Providencia+1881+Oficina+1822+Providencia+Santiago",
+    external: true,
+  },
+];
+
+const serviceLinks = [
+  { label: "Rehabilitación y dolor", href: "/servicios#rehabilitacion-y-dolor" },
+  { label: "Terapias complementarias", href: "/servicios#terapias-complementarias" },
+  { label: "Postquirúrgica", href: "/servicios#postquirurgica" },
+  { label: "Regeneración de tejidos", href: "/servicios#regeneracion-tejidos" },
 ];
 
 const socialLinks = [
+  { label: "WhatsApp", href: "https://wa.me/56928085737", icon: MessageCircle },
+  { label: "Instagram", href: "https://www.instagram.com/revitalizepro.cl", icon: Instagram },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/ortegaschmuck.cl",
-    icon: Instagram,
-  },
-  {
-    label: "WhatsApp",
-    href: "https://wa.me/56994836980",
-    icon: MessageCircle,
-  },
-  {
-    label: "Ubicacion",
-    href: "https://maps.google.com/?q=Providencia,+Santiago,+Chile",
+    label: "Mapa",
+    href: "https://maps.google.com/?q=Avenida+Nueva+Providencia+1881+Oficina+1822+Providencia+Santiago",
     icon: MapPin,
   },
+  { label: "Teléfono", href: "tel:+56928085737", icon: Phone },
 ];
 
-export default function FooterPremiumMedico() {
+function FooterColumn({ title, links }) {
   return (
-    <footer
-      id="footer"
-      className="relative overflow-hidden border-t border-white/10 bg-black text-white"
-    >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(22,24,29,0.55)_0%,rgba(7,8,10,0.35)_38%,rgba(0,0,0,0.95)_100%)]" />
-
-      <div className="relative mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-10">
-        <div className="grid gap-8 py-12 lg:grid-cols-[1.25fr_0.75fr] lg:py-16">
-          <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.02] p-6 sm:p-7">
-            <div className="flex items-center gap-3">
-              <div className="relative h-16 w-15 p-1.5">
-                <Image
-                  src="/logodifort.png"
-                  alt="Ortega & Schmuck"
-                  fill
-                  sizes="56px"
-                  className="object-contain"
-                />
-              </div>
-              <div>
-                <div className="min-w-0">
-                  <p className="truncate text-ml font-medium uppercase tracking-[0.28em] text-white sm:text-m">
-                    Ortega & Schmuck
-                  </p>
-                  <p className="truncate text-[8px] uppercase tracking-[0.2em] text-white/65 sm:text-[9px]">
-                    Odontología y Medicina Estética.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <p className="mt-5 max-w-2xl text-sm leading-7 tracking-[0.02em] text-white/72">
-              Clinica especializada en armonizacion dental y facial, con protocolos
-              personalizados para resultados naturales, seguros y medibles.
-            </p>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+    <div>
+      <h3 className="text-2xl text-slate-900">{title}</h3>
+      <span className="mt-2 block h-[2px] w-16 bg-gradient-to-r from-teal-500 to-cyan-500" />
+      <ul className="mt-5 space-y-3 text-sm text-slate-600">
+        {links.map((item) => (
+          <li key={item.label}>
+            {item.external ? (
               <a
-                href="tel:+56994836980"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-4 py-2 text-xs tracking-[0.1em] text-white/85 transition hover:bg-white/[0.1] hover:text-white"
-              >
-                <Phone className="h-4 w-4" />
-                +56 9 9483 6980
-              </a>
-              <a
-                href="https://wa.me/56994836980"
+                href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-4 py-2 text-xs tracking-[0.1em] text-white/85 transition hover:bg-white/[0.1] hover:text-white"
+                className="transition hover:text-slate-900"
               >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp directo
+                {item.label}
               </a>
-            </div>
+            ) : (
+              <Link href={item.href} className="transition hover:text-slate-900">
+                {item.label}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-white/55">Navegacion</p>
-              <nav aria-label="Links del pie de pagina" className="mt-4">
-                <ul className="flex flex-wrap gap-3">
-                  {footerLinks.map((item) => (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="inline-flex rounded-full border border-white/15 px-4 py-2 text-[11px] uppercase tracking-[0.15em] text-white/70 transition hover:border-white/30 hover:text-white"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
+export default function FooterRevitalize() {
+  return (
+    <footer className="px-4 pb-8 pt-16 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-teal-100 bg-[linear-gradient(180deg,#e8f7f5_0%,#f4fbfc_55%,#f7fcff_100%)] p-7 shadow-[0_34px_70px_-50px_rgba(15,23,42,0.45)] sm:p-10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <FooterColumn title="Raquisystem" links={companyLinks} />
+          <FooterColumn title="Ayuda" links={helpLinks} />
+          <FooterColumn title="Servicios" links={serviceLinks} />
 
-            <div className="mt-6 flex flex-wrap gap-3">
+          <div>
+            <h3 className="text-2xl text-slate-900">Síguenos</h3>
+            <span className="mt-2 block h-[2px] w-16 bg-gradient-to-r from-teal-500 to-cyan-500" />
+            <div className="mt-5 flex flex-wrap gap-3">
               {socialLinks.map((item) => {
                 const Icon = item.icon;
                 return (
                   <a
                     key={item.label}
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     aria-label={item.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/[0.04] text-white/80 transition hover:scale-105 hover:border-white/35 hover:bg-white/[0.1] hover:text-white"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700 shadow-sm transition hover:border-teal-300 hover:bg-teal-50"
                   >
                     <Icon className="h-5 w-5" />
                   </a>
                 );
               })}
             </div>
-          </div>
 
-          <aside className="rounded-[1.8rem] border border-white/10 bg-white/[0.02] p-4 sm:p-5">
-            <p className="text-[11px] uppercase tracking-[0.22em] text-white/58">Ubicacion</p>
-            <h4 className="mt-3 text-xl font-light tracking-[0.02em]">
-              Providencia, Santiago de Chile
-            </h4>
-            <p className="mt-3 text-sm leading-7 text-white/70">
-              Atencion con agenda previa. Estamos cerca de los principales accesos de Providencia.
-            </p>
-
-            <a
-              href="https://maps.google.com/?q=Providencia,+Santiago,+Chile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-black transition hover:bg-white/90"
-            >
-              <MapPin className="h-4 w-4" />
-              Abrir en Google Maps
-            </a>
-
-            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10">
-              <iframe
-                title="Mapa ubicacion Ortega & Schmuck"
-                src="https://www.google.com/maps?q=Providencia%2C%20Santiago%2C%20Chile&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-[240px] w-full"
-              />
+            <div className="mt-6 space-y-2 text-sm text-slate-600">
+              <p className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-teal-600" /> +56 9 2808 5737
+              </p>
+              <p className="flex items-start gap-2">
+                <Clock3 className="mt-0.5 h-4 w-4 text-teal-600" />
+                L-V 10:00 – 14:00 / 15:00 – 18:00 · Sáb 09:00 – 16:00
+              </p>
             </div>
-          </aside>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 py-6 text-[11px] text-white/55 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Ortega & Schmuck. Todos los derechos reservados.</p>
+        <div className="mt-10 grid gap-5 border-t border-teal-100 pt-7 lg:grid-cols-[1fr_1.25fr]">
+          <div className="rounded-2xl border border-teal-100 bg-white/80 p-5 text-sm text-slate-600">
+            <p className="text-xs uppercase tracking-[0.16em] text-teal-700">Ubicación</p>
+            <h4 className="mt-2 text-2xl text-slate-900">Revitalize Pro · Providencia</h4>
+            <p className="mt-3 leading-7">Avenida Nueva Providencia 1881, oficina 1822, Santiago de Chile.</p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-teal-100 bg-white">
+            <iframe
+              title="Mapa ubicación Revitalize Pro"
+              src="https://www.google.com/maps?q=Avenida+Nueva+Providencia+1881,+Providencia,+Santiago&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-[220px] w-full"
+            />
+          </div>
+        </div>
+
+        <div className="mt-7 flex flex-col gap-2 border-t border-teal-100 pt-5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Revitalize Pro. Todos los derechos reservados.</p>
           <p>
             Desarrollado por{" "}
             <a
-              href="https://www.nativecode.cl/"
+              href="https://nativecode.cl"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/72 transition hover:text-white"
+              className="text-teal-700 underline decoration-teal-300 underline-offset-2 transition hover:text-teal-800"
             >
-              NativeCode.cl
+              nativecode.cl
             </a>
           </p>
         </div>

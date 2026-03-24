@@ -78,7 +78,7 @@ function CatalogoSuspense(){
             }
 
         }catch (e) {
-            return toast.error('No ha sido posible listar las subcategorias contacte  a soporte de NativeCode: ERROR :' + e);
+            return toast.error('No ha sido posible listar las subcategorías. Intenta nuevamente.');
         }
     }
 
@@ -267,13 +267,13 @@ function CatalogoSuspense(){
             })
 
             if(!res.ok){
-                return toast.error('No ha sido posible cargar los datos desde el servidor, contacte a soporte de NativeCode');
+                return toast.error('No ha sido posible cargar los datos desde el servidor.');
             }else{
                 const dataProductos = await res.json();
                 setlistaProductos(dataProductos);
             }
         }catch(error){
-            return toast.error('Problema en cargar los dat desde el servidor contacte a soporte de NativeCode');
+            return toast.error('Problema al cargar los datos desde el servidor.');
         }
     }
 

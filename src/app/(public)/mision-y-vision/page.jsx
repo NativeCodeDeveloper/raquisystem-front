@@ -1,47 +1,52 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 export default function MisionVisionPage() {
   return (
-    <main className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-[#f6f7fb] py-24 md:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(148,163,184,0.2),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(59,130,246,0.14),transparent_42%)]" />
+    <main className="bg-[linear-gradient(180deg,#f3fbfa_0%,#f7fafc_100%)] text-slate-900">
+      <section className="relative overflow-hidden py-24 md:py-28">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(20,184,166,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(14,165,233,0.14),transparent_42%)]" />
 
-        <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-6 md:px-10 lg:grid-cols-[1.1fr_1fr] lg:items-center xl:px-12 xl:gap-16">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-              Ortega & Schmuck
+        <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-6 md:px-10 lg:grid-cols-[1fr_1fr] lg:items-start xl:px-12">
+          <article className="rounded-3xl border border-teal-100 bg-white p-8 shadow-[0_24px_65px_-45px_rgba(15,23,42,0.5)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-700">Revitalize Pro</p>
+            <h1 className="mt-4 text-4xl leading-tight sm:text-5xl">Misión</h1>
+            <p className="mt-6 text-sm leading-8 text-slate-600 sm:text-base">
+              Brindar un tratamiento clínico integral para dolor, rehabilitación postquirúrgica y regeneración de tejidos,
+              combinando terapias complementarias y seguimiento personalizado para recuperar funcionalidad y calidad de vida.
             </p>
-            <h1 className="mt-5 text-4xl leading-tight sm:text-5xl">Misión y Visión</h1>
-            <p className="mt-7 text-justify text-sm leading-relaxed text-slate-600 sm:text-base">
-              Nuestra misión es entregar atención odontológica integral, personalizada y de
-              alta calidad, combinando diagnóstico clínico, tecnología avanzada y protocolos
-              seguros para mejorar la salud oral y la calidad de vida de cada paciente.
-            </p>
-            <p className="mt-5 max-w-2xl text-justify text-sm leading-relaxed text-slate-600 sm:text-base">
-              Nuestra visión es consolidarnos como una clínica dental referente en
-              Providencia y Santiago por la excelencia clínica, la cercanía en la atención
-              y los resultados funcionales y estéticos obtenidos en cada tratamiento.
+          </article>
+
+          <article className="rounded-3xl border border-cyan-100 bg-white p-8 shadow-[0_24px_65px_-45px_rgba(15,23,42,0.5)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700">Enfoque clínico</p>
+            <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">Visión</h2>
+            <p className="mt-6 text-sm leading-8 text-slate-600 sm:text-base">
+              Ser referente en Providencia y Santiago por integrar rehabilitación, terapias complementarias y regeneración
+              estética terapéutica en un modelo clínico confiable, humano y basado en resultados medibles.
             </p>
 
-            <Link
-              href="/contacto"
-              className="mt-10 inline-flex rounded-full bg-slate-900 px-7 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
-            >
-              Solicitar evaluación
-            </Link>
-          </div>
+            <div className="mt-8 space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-700">
+              <p>Atención centrada en la causa del problema, no solo en el síntoma.</p>
+              <p>Protocolos ajustados según evolución individual del paciente.</p>
+              <p>Resultados funcionales y mejoría real del tejido.</p>
+            </div>
+          </article>
+        </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-white/70 bg-slate-100 shadow-[0_24px_70px_-38px_rgba(15,23,42,0.5)]">
-            <Image
-              src="/dr2.png"
-              alt="Misión y visión clínica"
-              fill
-              className="object-cover object-center"
-            />
-          </div>
+        <div className="relative mx-auto mt-12 flex w-full max-w-7xl flex-wrap gap-3 px-6 md:px-10 xl:px-12">
+          <Link
+            href="/agendaProfesionales"
+            className="rounded-full bg-slate-900 px-7 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+          >
+            Agenda tu evaluación
+          </Link>
+          <Link
+            href="/contacto"
+            className="rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-medium text-slate-800 transition hover:border-slate-400"
+          >
+            Ir a contacto
+          </Link>
         </div>
       </section>
     </main>
