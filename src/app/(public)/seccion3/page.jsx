@@ -25,6 +25,12 @@ const FALLBACK_TESTIMONIOS = [
   },
 ];
 
+const ACCENT_STYLES = [
+  "border-cyan-200 bg-cyan-50/70",
+  "border-teal-200 bg-teal-50/70",
+  "border-emerald-200 bg-emerald-50/70",
+];
+
 export default function Seccion3() {
   const scrollerRef = useRef(null);
   const [imageErrors, setImageErrors] = useState({});
@@ -86,58 +92,66 @@ export default function Seccion3() {
     <>
       <section
         id="testimonios"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#eef8f8_0%,#f6fbfc_55%,#f8fcff_100%)] py-20 text-slate-900 sm:py-24"
+        className="scroll-mt-24 bg-[linear-gradient(180deg,#f8fbfc_0%,#f1f7fa_58%,#edf3f8_100%)] py-24 text-slate-900 sm:py-28"
       >
         <div className="mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-10">
           <RevealOnScroll>
-            <div className="flex flex-wrap items-end justify-between gap-5">
-              <div>
-                <p className="text-xs uppercase tracking-[0.22em] text-teal-700">
-                  Testimonios y evolución clínica
-                </p>
-                <h2 className="mt-4 max-w-3xl text-balance text-4xl leading-tight sm:text-5xl">
-                  Testimonios de pacientes con avances reales en dolor y recuperación.
-                </h2>
-              </div>
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-[0.22em] text-teal-700">Testimonios y evolución clínica</p>
+              <h2 className="mx-auto mt-5 max-w-5xl text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+                Historias reales de pacientes con mejora funcional y reducción del dolor.
+              </h2>
+              <p className="mx-auto mt-6 max-w-4xl text-base leading-8 text-slate-600">
+                Cada testimonio refleja un tratamiento clínico personalizado, seguimiento constante y objetivos
+                terapéuticos claros.
+              </p>
+            </div>
+          </RevealOnScroll>
 
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => scrollByAmount("left")}
-                  aria-label="Desplazar hacia la izquierda"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700 shadow-sm transition duration-300 hover:bg-teal-50"
-                >
-                  <ChevronLeft className="h-4 w-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollByAmount("right")}
-                  aria-label="Desplazar hacia la derecha"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700 shadow-sm transition duration-300 hover:bg-teal-50"
-                >
-                  <ChevronRight className="h-4 w-4" />
-                </button>
-              </div>
+          <RevealOnScroll>
+            <div className="mt-10 flex justify-center gap-2">
+              <button
+                type="button"
+                onClick={() => scrollByAmount("left")}
+                aria-label="Desplazar hacia la izquierda"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition duration-300 hover:bg-slate-100"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollByAmount("right")}
+                aria-label="Desplazar hacia la derecha"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition duration-300 hover:bg-slate-100"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
             </div>
           </RevealOnScroll>
 
           <div
             ref={scrollerRef}
-            className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2"
+            className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2"
           >
             {testimonios.map((item, index) => (
               <RevealOnScroll
                 key={`${item.title}-${index}`}
-                className="w-[88%] shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] lg:w-[calc((100%-2rem)/3)]"
-                delayClass={index === 0 ? "delay-100" : "delay-150"}
+                className="w-[90%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+                delayClass={index % 2 === 0 ? "delay-100" : "delay-150"}
               >
-                <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-cyan-100 bg-white shadow-[0_28px_60px_-40px_rgba(15,23,42,0.5)]">
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                <article
+                  className={`relative h-full rounded-3xl border p-6 shadow-[0_28px_58px_-46px_rgba(15,23,42,0.42)] sm:p-7 ${
+                    ACCENT_STYLES[index % ACCENT_STYLES.length]
+                  } ${index % 3 === 0 ? "md:-rotate-[0.4deg]" : index % 3 === 1 ? "md:rotate-[0.35deg]" : ""}`}
+                >
+                  <p className="pointer-events-none absolute right-6 top-4 text-6xl leading-none text-slate-300/40">“</p>
+
+                  <div className="flex items-center gap-3">
                     <img
                       src={imageErrors[item.image] ? FALLBACK_CASE_IMAGE : item.image}
-                      alt={item.title}
+                      alt={`Paciente testimonio ${index + 1}`}
                       loading="lazy"
-                      className="h-full w-full object-cover object-center"
+                      className="h-14 w-14 rounded-full border border-white object-cover object-center shadow-sm"
                       onError={() =>
                         setImageErrors((current) => ({
                           ...current,
@@ -145,18 +159,19 @@ export default function Seccion3() {
                         }))
                       }
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,6,23,0.02)_0%,rgba(2,6,23,0.45)_100%)]" />
-                    <span className="absolute left-4 top-4 rounded-full border border-white/50 bg-white/85 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-slate-700">
-                      Paciente Revitalize Pro
-                    </span>
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">Paciente Revitalize Pro</p>
+                      <p className="mt-1 text-sm text-slate-700">Caso clínico personalizado</p>
+                    </div>
                   </div>
 
-                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-                    <p className="text-3xl leading-none text-teal-600">“</p>
-                    <h3 className="mt-2 text-base leading-8 text-slate-700 sm:text-lg">{item.title}</h3>
-                    <div className="mt-5 border-t border-slate-100 pt-4 text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                      Resultado funcional y seguimiento personalizado
-                    </div>
+                  <p className="mt-6 text-base leading-8 text-slate-700 sm:text-lg">{item.title}</p>
+
+                  <div className="mt-7 flex items-center justify-between border-t border-slate-200/80 pt-4">
+                    <span className="text-[11px] uppercase tracking-[0.14em] text-slate-500">Evolución funcional</span>
+                    <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-[0.14em] text-teal-700 ring-1 ring-teal-200">
+                      Testimonio real
+                    </span>
                   </div>
                 </article>
               </RevealOnScroll>
@@ -167,22 +182,23 @@ export default function Seccion3() {
 
       <section
         id="agenda"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#f4fbfa_0%,#edf6f8_100%)] py-20 text-slate-900 sm:py-24"
+        className="scroll-mt-24 bg-[linear-gradient(180deg,#0f2a36_0%,#123240_100%)] py-20 text-white sm:py-24"
       >
         <div className="mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-10">
           <RevealOnScroll>
-            <div className="rounded-[2rem] border border-teal-100 bg-white px-6 py-14 text-center shadow-[0_30px_64px_-45px_rgba(15,23,42,0.45)] sm:px-10">
-              <p className="text-xs uppercase tracking-[0.22em] text-teal-700">Agenda online</p>
-              <h2 className="mx-auto mt-4 max-w-3xl text-balance text-3xl leading-tight tracking-[0.01em] sm:text-4xl lg:text-5xl">
-                Agenda tu evaluación clínica y comencemos tu recuperación.
+            <div className="rounded-[2rem] border border-white/14 bg-white/[0.05] px-6 py-14 text-center backdrop-blur-sm sm:px-10">
+              <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">Agenda online</p>
+              <h2 className="mx-auto mt-5 max-w-4xl text-balance text-3xl leading-[1.08] sm:text-4xl lg:text-5xl">
+                Agenda tu evaluación clínica y comencemos tu proceso de recuperación.
               </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-8 tracking-[0.01em] text-slate-600 sm:text-base">
-                Iniciamos con evaluación personalizada para definir objetivos, protocolo terapéutico y seguimiento.
+              <p className="mx-auto mt-6 max-w-3xl text-sm leading-8 text-slate-200 sm:text-base">
+                Iniciamos con evaluación integral para definir objetivos terapéuticos, plan de tratamiento y
+                seguimiento profesional.
               </p>
               <Link
                 href="/agendaProfesionales"
                 aria-label="Reservar evaluación"
-                className="mt-8 inline-flex w-full max-w-xs justify-center rounded-full bg-slate-900 px-8 py-3 text-xs uppercase tracking-[0.14em] text-white transition duration-300 hover:bg-slate-700"
+                className="mt-9 inline-flex w-full max-w-xs justify-center rounded-full bg-emerald-300 px-8 py-3 text-xs uppercase tracking-[0.14em] text-slate-950 transition duration-300 hover:bg-emerald-200"
               >
                 Agenda tu evaluación
               </Link>
