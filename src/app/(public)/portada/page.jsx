@@ -110,32 +110,32 @@ export default function Portada() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] py-12 pt-28 text-white md:pt-32"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] py-16 pt-32 text-white md:pt-36"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
       <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
-        <article className="relative flex flex-col justify-center p-6 sm:p-8 lg:col-span-5 lg:p-10">
+      <div className="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-12">
+        <article className="relative flex flex-col justify-center py-4 lg:col-span-5 lg:py-8">
 
           {/* Badge */}
           <div className="flex items-center gap-2">
             <span className="h-px w-4 bg-[#D4AF6A]/60" />
-            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Centro de rehabilitación · Providencia</p>
+            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Centro de rehabilitación </p>
           </div>
 
           {/* H1 + descripción */}
           <div className="mt-6">
-            <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-[3.4rem]">
+            <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-[4rem]">
               Revitalize<span className="text-[#D4AF6A]"> Pro</span>
             </h1>
-            <p className="mt-4 max-w-sm text-[15px] font-light leading-7 text-white/60">
+            <p className="mt-5 max-w-sm text-base font-light leading-8 text-white/60">
               Rehabilitación integral, manejo del dolor y regeneración de tejidos. Atención clínica personalizada en Santiago.
             </p>
           </div>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/agendaProfesionales"
               className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#07111c] shadow-[0_4px_20px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 sm:w-auto"
@@ -151,18 +151,18 @@ export default function Portada() {
           </div>
 
           {/* Stats */}
-          <div className="mt-10 grid grid-cols-3 gap-2.5">
-            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+          <div className="mt-12 grid grid-cols-3 gap-3">
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-4">
               <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Especialidad</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">Dolor y postquirúrgico</p>
+              <p className="mt-2 text-[13px] font-medium leading-snug text-white/85">Dolor y postquirúrgico</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-4">
               <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Soporte</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">TENS · Ondas · Presoterapia</p>
+              <p className="mt-2 text-[13px] font-medium leading-snug text-white/85">TENS · Ondas · Presoterapia</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-4">
               <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Objetivo</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">Mejora real del tejido</p>
+              <p className="mt-2 text-[13px] font-medium leading-snug text-white/85">Mejora real del tejido</p>
             </div>
           </div>
         </article>
@@ -174,7 +174,7 @@ export default function Portada() {
         >
           <div
             className="relative w-full overflow-hidden rounded-3xl"
-            style={{ minHeight: "clamp(320px, 52vh, 640px)" }}
+            style={{ minHeight: "clamp(380px, 60vh, 700px)" }}
           >
             {/* Slides */}
             {slides.map((slide, index) => {
