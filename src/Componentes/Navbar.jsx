@@ -24,18 +24,18 @@ const serviceItems = [
 function ServicesDropdown({ mobile = false, onSelect }) {
   if (mobile) {
     return (
-      <details className="rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-white/90">
+      <details className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-700">
         <summary className="flex cursor-pointer list-none items-center justify-between text-[11px] uppercase tracking-[0.14em] [&::-webkit-details-marker]:hidden">
           Servicios
           <ChevronDown className="h-4 w-4" />
         </summary>
-        <div className="mt-3 space-y-1 border-t border-white/10 pt-3">
+        <div className="mt-3 space-y-1 border-t border-slate-200 pt-3">
           {serviceItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               onClick={onSelect}
-              className="block rounded-lg px-3 py-2 text-[11px] tracking-[0.12em] text-white/80 transition hover:bg-white/10 hover:text-white"
+              className="block rounded-lg px-3 py-2 text-[11px] tracking-[0.12em] text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
             >
               {item.label}
             </Link>
@@ -47,18 +47,18 @@ function ServicesDropdown({ mobile = false, onSelect }) {
 
   return (
     <details className="group relative flex h-9 items-center">
-      <summary className="inline-flex h-9 cursor-pointer list-none items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-white/78 transition-colors duration-200 hover:text-white [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex h-9 cursor-pointer list-none items-center gap-1 text-[11px] uppercase tracking-[0.15em] text-slate-600 transition-colors duration-200 hover:text-slate-900 [&::-webkit-details-marker]:hidden">
         Servicios
         <ChevronDown className="h-4 w-4 transition group-open:rotate-180" />
       </summary>
-      <ul className="absolute left-1/2 top-[calc(100%+12px)] z-50 w-[310px] -translate-x-1/2 rounded-2xl border border-white/15 bg-[linear-gradient(180deg,rgba(4,18,26,0.98)_0%,rgba(6,26,36,0.98)_100%)] p-2 shadow-[0_28px_45px_-22px_rgba(2,8,22,0.85)] backdrop-blur-2xl">
+      <ul className="absolute left-1/2 top-[calc(100%+12px)] z-50 w-[310px] -translate-x-1/2 rounded-2xl border border-slate-200/80 bg-white p-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]">
         {serviceItems.map((item, index) => (
           <li key={item.label}>
             <Link
               href={item.href}
               className={[
-                "block rounded-xl px-3 py-2 text-[11px] tracking-[0.12em] text-white/85 transition hover:bg-white/10 hover:text-white",
-                index === 0 ? "border border-white/15 bg-white/5" : "",
+                "block rounded-xl px-3 py-2 text-[11px] tracking-[0.12em] text-slate-700 transition hover:bg-slate-50 hover:text-slate-900",
+                index === 0 ? "border border-slate-200 bg-slate-50/80 font-medium" : "",
               ].join(" ")}
             >
               {item.label}
@@ -74,7 +74,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D4AF6A]/15 bg-[linear-gradient(180deg,rgba(5,12,22,0.96)_0%,rgba(7,17,28,0.92)_100%)] text-white shadow-[0_1px_30px_-10px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/96 text-slate-900 shadow-[0_1px_20px_-5px_rgba(0,0,0,0.10)] backdrop-blur-xl">
 
       {/* logo raquisystem */}
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-20 md:h-24 md:px-8 lg:px-6">
@@ -97,7 +97,7 @@ export default function Navbar() {
               <li key={item.label} className="flex items-center">
                 <Link
                   href={item.href}
-                  className="inline-flex h-9 items-center text-[11px] uppercase tracking-[0.15em] text-white/78 transition-colors duration-200 hover:text-white"
+                  className="inline-flex h-9 items-center text-[11px] uppercase tracking-[0.15em] text-slate-600 transition-colors duration-200 hover:text-slate-900"
                 >
                   {item.label}
                 </Link>
@@ -113,7 +113,7 @@ export default function Navbar() {
           <Link
             href="/agendaProfesionales"
             aria-label="Agendar evaluación"
-            className="hidden items-center rounded-full border border-[#D4AF6A]/40 bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 lg:inline-flex"
+            className="hidden items-center rounded-full border border-[#D4AF6A]/40 bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.35)] transition hover:brightness-110 lg:inline-flex"
           >
             Agenda tu evaluación
           </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((prev) => !prev)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition hover:bg-white/20 xl:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-slate-100 text-slate-700 transition hover:bg-slate-200 xl:hidden"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -132,7 +132,7 @@ export default function Navbar() {
 
       <div
         className={[
-          "overflow-hidden border-t border-white/10 bg-[linear-gradient(180deg,rgba(3,16,24,0.95)_0%,rgba(5,20,30,0.95)_100%)] xl:hidden",
+          "overflow-hidden border-t border-slate-200 bg-white xl:hidden",
           isOpen ? "max-h-[640px] opacity-100" : "max-h-0 opacity-0",
           "transition-all duration-300 ease-out",
         ].join(" ")}
@@ -143,7 +143,7 @@ export default function Navbar() {
               key={item.label}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="rounded-xl border border-transparent px-4 py-3 text-[11px] uppercase tracking-[0.14em] text-white/85 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+              className="rounded-xl border border-transparent px-4 py-3 text-[11px] uppercase tracking-[0.14em] text-slate-700 transition hover:border-slate-200 hover:bg-slate-50 hover:text-slate-900"
             >
               {item.label}
             </Link>
@@ -155,7 +155,7 @@ export default function Navbar() {
             href="/agendaProfesionales"
             onClick={() => setIsOpen(false)}
             aria-label="Agendar evaluación desde menú móvil"
-            className="mt-2 rounded-xl bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.40)] transition hover:brightness-110"
+            className="mt-2 rounded-xl bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.35)] transition hover:brightness-110"
           >
             Agenda tu evaluación
           </Link>

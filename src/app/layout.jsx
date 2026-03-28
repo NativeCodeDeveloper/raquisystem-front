@@ -67,6 +67,11 @@ export const metadata = {
     description:
       "Rehabilitación integral y terapias regenerativas con enfoque clínico.",
   },
+  icons: {
+    icon: "/logopequeño.png",
+    shortcut: "/logopequeño.png",
+    apple: "/logopequeño.png",
+  },
 };
 
 export default function RootLayout({ children }) {

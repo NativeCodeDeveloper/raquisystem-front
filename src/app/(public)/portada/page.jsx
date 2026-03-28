@@ -110,7 +110,7 @@ export default function Portada() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-[linear-gradient(160deg,#060f18_0%,#091a28_45%,#071520_100%)] pb-12 pt-28 text-white md:pb-16 md:pt-36"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] pb-12 pt-28 text-white md:pb-16 md:pt-36"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
       <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
@@ -126,15 +126,13 @@ export default function Portada() {
               <span className="h-px w-5 bg-[#D4AF6A]/70" />
               <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Revitalize Pro · Providencia</p>
             </div>
-            <div className="relative mt-5 h-24 w-40 sm:h-28 sm:w-48 md:h-32 md:w-56">
-              <Image
-                src="/logors.png"
-                alt="RaquiSystem"
-                fill
-                priority
-                sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, 224px"
-                className="object-contain object-left transition-transform duration-300"
-              />
+            <div className="mt-5">
+              <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-[3.2rem]">
+                Revitalize<span className="text-[#D4AF6A]"> Pro</span>
+              </h1>
+              <p className="mt-2 text-sm font-light tracking-wide text-white/55">
+                Rehabilitación integral · Providencia, Santiago
+              </p>
             </div>
           </div>
 
