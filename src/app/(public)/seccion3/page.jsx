@@ -182,23 +182,27 @@ export default function Seccion3() {
 
       <section
         id="agenda"
-        className="scroll-mt-24 bg-[linear-gradient(180deg,#0f2a36_0%,#123240_100%)] py-20 text-white sm:py-24"
+        className="scroll-mt-24 bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] py-20 text-white sm:py-24"
       >
         <div className="mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-10">
           <RevealOnScroll>
-            <div className="rounded-[2rem] border border-white/14 bg-white/[0.05] px-6 py-14 text-center backdrop-blur-sm sm:px-10">
-              <p className="text-xs uppercase tracking-[0.22em] text-cyan-200">Agenda online</p>
-              <h2 className="mx-auto mt-5 max-w-4xl text-balance text-3xl leading-[1.08] sm:text-4xl lg:text-5xl">
+            <div className="rounded-[2rem] border border-[#D4AF6A]/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] px-6 py-14 text-center backdrop-blur-sm sm:px-10">
+              <div className="inline-flex items-center gap-3">
+                <span className="h-px w-6 bg-[#D4AF6A]/60" />
+                <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Agenda online</p>
+                <span className="h-px w-6 bg-[#D4AF6A]/60" />
+              </div>
+              <h2 className="mx-auto mt-5 max-w-4xl text-balance text-3xl font-semibold leading-[1.08] sm:text-4xl lg:text-5xl">
                 Agenda tu evaluación clínica y comencemos tu proceso de recuperación.
               </h2>
-              <p className="mx-auto mt-6 max-w-3xl text-sm leading-8 text-slate-200 sm:text-base">
+              <p className="mx-auto mt-6 max-w-3xl text-sm font-light leading-8 text-white/65 sm:text-base">
                 Iniciamos con evaluación integral para definir objetivos terapéuticos, plan de tratamiento y
                 seguimiento profesional.
               </p>
               <Link
                 href="/agendaProfesionales"
                 aria-label="Reservar evaluación"
-                className="mt-9 inline-flex w-full max-w-xs justify-center rounded-full bg-emerald-300 px-8 py-3 text-xs uppercase tracking-[0.14em] text-slate-950 transition duration-300 hover:bg-emerald-200"
+                className="mt-9 inline-flex w-full max-w-xs justify-center rounded-full bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#07111c] shadow-[0_4px_20px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110"
               >
                 Agenda tu evaluación
               </Link>

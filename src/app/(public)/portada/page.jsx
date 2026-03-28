@@ -110,27 +110,24 @@ export default function Portada() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] pb-12 pt-28 text-white md:pb-16 md:pt-36"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] py-12 pt-28 text-white md:pt-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
       <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:items-stretch lg:gap-8 lg:px-10">
+      <div className="relative mx-auto grid w-full max-w-7xl flex-1 gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:items-stretch lg:gap-8 lg:px-10">
         <article className="relative flex h-full min-h-[520px] flex-col justify-between overflow-hidden rounded-[2rem] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.025)_100%)] p-6 shadow-[0_0_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md sm:p-8 lg:col-span-5 lg:p-10">
           <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#D4AF6A]/15 blur-3xl" />
           <div className="absolute -bottom-20 -left-10 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
 
           {/* Top: badge + logo */}
           <div>
-            <div className="flex items-center gap-2">
-              <span className="h-px w-5 bg-[#D4AF6A]/70" />
-              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Revitalize Pro · Providencia</p>
-            </div>
-            <div className="mt-5">
+          
+            <div className="mt-8">
               <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-[3.2rem]">
                 Revitalize<span className="text-[#D4AF6A]"> Pro</span>
               </h1>
-              <p className="mt-2 text-sm font-light tracking-wide text-white/55">
+              <p className="mt-4 text-sm font-light tracking-wide text-white/55">
                 Rehabilitación integral · Providencia, Santiago
               </p>
             </div>
