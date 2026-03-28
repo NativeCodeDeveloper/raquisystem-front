@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -109,51 +110,63 @@ export default function Portada() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-[linear-gradient(180deg,#071823_0%,#0b2230_54%,#0d1d29_100%)] pb-12 pt-28 text-white md:pb-16 md:pt-36"
+      className="relative overflow-hidden bg-[linear-gradient(160deg,#060f18_0%,#091a28_45%,#071520_100%)] pb-12 pt-28 text-white md:pb-16 md:pt-36"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_8%,rgba(20,184,166,0.2),transparent_32%),radial-gradient(circle_at_90%_0%,rgba(14,165,233,0.2),transparent_34%)]" />
-      <div className="premium-gridline pointer-events-none absolute inset-0 opacity-20" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
+      <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:items-stretch lg:gap-8 lg:px-10">
-        <article className="relative flex h-full min-h-[520px] flex-col overflow-hidden rounded-[2rem] border border-white/14 bg-white/[0.05] p-6 backdrop-blur-md sm:p-8 lg:col-span-5 lg:p-10">
-          <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl" />
+        <article className="relative flex h-full min-h-[520px] flex-col justify-between overflow-hidden rounded-[2rem] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.025)_100%)] p-6 shadow-[0_0_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md sm:p-8 lg:col-span-5 lg:p-10">
+          <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#D4AF6A]/15 blur-3xl" />
+          <div className="absolute -bottom-20 -left-10 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
 
-          <p className="text-[11px] uppercase tracking-[0.22em] text-emerald-200">Revitalize Pro · Providencia</p>
-          <h1 className="mt-4 max-w-xl text-balance text-[2.1rem] font-medium leading-[1.08] sm:text-[2.8rem] lg:text-[3rem]">
-            Recuperación funcional, dolor bajo control.
-          </h1>
-          <p className="mt-5 max-w-lg text-sm leading-8 text-slate-100/85 sm:text-base">
-            Integramos rehabilitación, terapias complementarias y regeneración de tejidos para abordar la causa del
-            problema, no solo el síntoma.
-          </p>
+          {/* Top: badge + logo */}
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="h-px w-5 bg-[#D4AF6A]/70" />
+              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Revitalize Pro · Providencia</p>
+            </div>
+            <div className="relative mt-5 h-24 w-40 sm:h-28 sm:w-48 md:h-32 md:w-56">
+              <Image
+                src="/logors.png"
+                alt="RaquiSystem"
+                fill
+                priority
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 192px, 224px"
+                className="object-contain object-left transition-transform duration-300"
+              />
+            </div>
+          </div>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          {/* Middle: CTA buttons */}
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/agendaProfesionales"
-              className="inline-flex w-full justify-center rounded-full bg-emerald-300 px-7 py-3 text-xs font-medium uppercase tracking-[0.14em] text-slate-950 transition hover:bg-emerald-200 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-7 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#07111c] shadow-[0_4px_20px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 sm:w-auto"
             >
               Agenda tu evaluación
             </Link>
             <Link
               href="/servicios"
-              className="inline-flex w-full justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3 text-xs font-medium uppercase tracking-[0.14em] text-white transition hover:bg-white/16 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/[0.07] px-7 py-3 text-xs font-medium uppercase tracking-[0.14em] text-white/90 transition hover:border-white/40 hover:bg-white/12 sm:w-auto"
             >
               Ver tratamientos
             </Link>
           </div>
 
-          <div className="mt-auto grid grid-cols-1 gap-3 pt-8 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/14 bg-white/[0.03] p-3.5">
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/65">Especialidad</p>
-              <p className="mt-1.5 text-sm text-white">Dolor y postquirúrgico</p>
+          {/* Bottom: stats */}
+          <div className="grid grid-cols-3 gap-2.5">
+            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Especialidad</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">Dolor y postquirúrgico</p>
             </div>
-            <div className="rounded-2xl border border-white/14 bg-white/[0.03] p-3.5">
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/65">Soporte</p>
-              <p className="mt-1.5 text-sm text-white">TENS · Ondas · Presoterapia</p>
+            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Soporte</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">TENS · Ondas · Presoterapia</p>
             </div>
-            <div className="rounded-2xl border border-white/14 bg-white/[0.03] p-3.5">
-              <p className="text-[10px] uppercase tracking-[0.14em] text-white/65">Objetivo</p>
-              <p className="mt-1.5 text-sm text-white">Mejora real del tejido</p>
+            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Objetivo</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">Mejora real del tejido</p>
             </div>
           </div>
         </article>
@@ -174,10 +187,10 @@ export default function Portada() {
                 }
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,10,18,0.04)_0%,rgba(7,24,33,0.68)_100%)]" />
-              <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/20 bg-[#123344]/72 p-4 backdrop-blur-md">
-                <p className="text-[11px] uppercase tracking-[0.16em] text-cyan-100/85">{mobileSlide.badge}</p>
-                <h2 className="mt-1.5 text-xl font-medium leading-tight text-white">{mobileSlide.title}</h2>
-                <p className="mt-1.5 text-sm leading-7 text-white/85">{mobileSlide.text}</p>
+              <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-[#0a1e2c]/80 p-4 backdrop-blur-md">
+                <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#D4AF6A]/90">{mobileSlide.badge}</p>
+                <h2 className="mt-2 text-xl font-semibold leading-tight text-white">{mobileSlide.title}</h2>
+                <p className="mt-1.5 text-sm leading-7 text-white/80">{mobileSlide.text}</p>
               </div>
             </div>
           </div>
@@ -243,10 +256,13 @@ export default function Portada() {
                 </div>
               )}
 
-              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/22 bg-[#123344]/72 p-5 backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-6">
-                <p className="text-[11px] uppercase tracking-[0.18em] text-cyan-100/85">{currentSlide.badge}</p>
-                <h2 className="mt-2 text-2xl font-medium leading-tight text-white sm:text-[2rem]">{currentSlide.title}</h2>
-                <p className="mt-2 text-sm leading-7 text-white/85 sm:text-base">{currentSlide.text}</p>
+              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/12 bg-[#07111c]/82 p-5 backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-6">
+                <div className="flex items-center gap-2">
+                  <span className="h-px w-4 bg-[#D4AF6A]/70" />
+                  <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#D4AF6A]/90">{currentSlide.badge}</p>
+                </div>
+                <h2 className="mt-3 text-2xl font-semibold leading-tight text-white sm:text-[1.9rem]">{currentSlide.title}</h2>
+                <p className="mt-2 text-sm leading-7 text-white/75 sm:text-[0.9rem]">{currentSlide.text}</p>
               </div>
             </div>
           </div>
@@ -261,8 +277,8 @@ export default function Portada() {
                   className={[
                     "relative w-20 shrink-0 overflow-hidden rounded-xl border transition sm:w-24",
                     activeIndex === index
-                      ? "border-emerald-300"
-                      : "border-white/18 hover:border-white/34",
+                      ? "border-[#D4AF6A] shadow-[0_0_10px_-2px_rgba(212,175,106,0.5)]"
+                      : "border-white/15 hover:border-white/30",
                   ].join(" ")}
                   aria-label={`Ir al slide ${index + 1}`}
                 >

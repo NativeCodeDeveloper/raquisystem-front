@@ -1,7 +1,7 @@
 import "./globals.css";
 import { AnimatedLayout } from "@/Componentes/AnimatedLayout";
 import AgendaProvider from "@/ContextosGlobales/AgendaContext";
-import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
 });
 
-const outfit = Outfit({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["400"],
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadataBase = new URL(
@@ -71,7 +71,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable}`}>
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable}`}>
       <body className="min-h-screen bg-white">
         <AnimatedLayout>
           <AgendaProvider>{children}</AgendaProvider>

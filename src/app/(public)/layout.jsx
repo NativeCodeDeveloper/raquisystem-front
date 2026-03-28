@@ -9,10 +9,10 @@ export default function PublicLayout({ children }) {
   return (
     <CarritoProvider>
       <ObjetoPagarProvider>
-        <div className="public-site relative min-h-screen bg-[radial-gradient(circle_at_top,#dff2ef_0%,#f4faf9_38%,#f8fafc_100%)] text-slate-900">
+        <div className="public-site relative min-h-screen bg-[#07111c] text-white">
           <ToasterClient />
           <Navbar />
-          <main className="relative pt-24 md:pt-12">{children}</main>
+          <main className="relative pt-12 md:pt-12">{children}</main>
           <FooterRevitalize />
           <WhatsAppFloatButton />
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const navItems = [
@@ -73,17 +74,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[linear-gradient(180deg,rgba(4,18,26,0.86)_0%,rgba(6,26,36,0.78)_100%)] text-white backdrop-blur-2xl">
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-20 md:px-8 lg:px-6">
-        <Link href="/#inicio" aria-label="Ir al inicio" className="group flex shrink-0 items-center gap-3">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/25 bg-gradient-to-br from-teal-500 to-cyan-500 text-lg tracking-tight text-white shadow-[0_20px_32px_-18px_rgba(6,182,212,0.8)]">
-            RP
-          </span>
-          <div className="min-w-0">
-            <p className="truncate text-sm uppercase tracking-[0.22em] text-white">Revitalize Pro</p>
-            <p className="hidden truncate text-[10px] uppercase tracking-[0.2em] text-emerald-100/80 sm:block">
-              Rehabilitación y Regeneración
-            </p>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D4AF6A]/15 bg-[linear-gradient(180deg,rgba(5,12,22,0.96)_0%,rgba(7,17,28,0.92)_100%)] text-white shadow-[0_1px_30px_-10px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+
+      {/* logo raquisystem */}
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:h-20 md:h-24 md:px-8 lg:px-6">
+        <Link href="/#inicio" aria-label="Ir al inicio" className="group flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="relative h-28 w-44 sm:h-32 sm:w-52 md:h-36 md:w-60">
+            <Image
+              src="/logors.png"
+              alt="RaquiSystem"
+              fill
+              priority
+              sizes="(max-width: 640px) 176px, (max-width: 768px) 208px, 240px"
+              className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
         </Link>
 
@@ -109,7 +113,7 @@ export default function Navbar() {
           <Link
             href="/agendaProfesionales"
             aria-label="Agendar evaluación"
-            className="hidden rounded-full border border-emerald-100/45 bg-emerald-300 px-5 py-2.5 text-xs uppercase tracking-[0.14em] text-slate-950 transition hover:bg-emerald-200 lg:inline-flex"
+            className="hidden items-center rounded-full border border-[#D4AF6A]/40 bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 lg:inline-flex"
           >
             Agenda tu evaluación
           </Link>
@@ -151,7 +155,7 @@ export default function Navbar() {
             href="/agendaProfesionales"
             onClick={() => setIsOpen(false)}
             aria-label="Agendar evaluación desde menú móvil"
-            className="mt-2 rounded-xl bg-emerald-300 px-4 py-3 text-center text-[11px] uppercase tracking-[0.14em] text-slate-950 transition hover:bg-emerald-200"
+            className="mt-2 rounded-xl bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-4 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.15em] text-[#07111c] shadow-[0_2px_14px_-4px_rgba(212,175,106,0.40)] transition hover:brightness-110"
           >
             Agenda tu evaluación
           </Link>

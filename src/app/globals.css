@@ -148,9 +148,10 @@ html {
 }
 
 .public-site {
-  font-family: var(--font-outfit), "Segoe UI", sans-serif;
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
   line-height: 1.65;
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .public-site h1,
@@ -159,10 +160,16 @@ html {
 .public-site h4,
 .public-site h5,
 .public-site h6 {
-  font-family: var(--font-outfit), "Segoe UI", sans-serif;
-  letter-spacing: 0.005em;
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
+  letter-spacing: -0.01em;
   line-height: 1.12;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+.public-site p,
+.public-site span,
+.public-site a {
+  font-family: var(--font-poppins), "Segoe UI", sans-serif;
 }
 
 .premium-mesh {
