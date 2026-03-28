@@ -98,7 +98,7 @@ export default function Seccion3() {
           <RevealOnScroll>
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.22em] text-teal-700">Testimonios y evolución clínica</p>
-              <h2 className="mx-auto mt-5 max-w-5xl text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
+              <h2 className="mt-5 text-balance text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">
                 Historias reales de pacientes con mejora funcional y reducción del dolor.
               </h2>
               <p className="mx-auto mt-6 max-w-4xl text-base leading-8 text-slate-600">
@@ -192,7 +192,7 @@ export default function Seccion3() {
                 <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Agenda online</p>
                 <span className="h-px w-6 bg-[#D4AF6A]/60" />
               </div>
-              <h2 className="mx-auto mt-5 max-w-4xl text-balance text-3xl font-semibold leading-[1.08] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 text-balance text-3xl font-semibold leading-[1.08] sm:text-4xl lg:text-5xl">
                 Agenda tu evaluación clínica y comencemos tu proceso de recuperación.
               </h2>
               <p className="mx-auto mt-6 max-w-3xl text-sm font-light leading-8 text-white/65 sm:text-base">

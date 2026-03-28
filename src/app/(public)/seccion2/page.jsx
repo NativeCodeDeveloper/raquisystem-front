@@ -119,7 +119,7 @@ export default function Seccion2() {
 
         {/* Header */}
         <RevealOnScroll>
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="text-center">
             <div className="inline-flex items-center gap-3">
               <span className="h-px w-8 bg-[#D4AF6A]/60" />
               <p className="text-[10px] font-medium uppercase tracking-[0.30em] text-[#D4AF6A]">
