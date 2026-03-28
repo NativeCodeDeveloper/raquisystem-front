@@ -420,7 +420,7 @@ export default function CalendarioMensualHoras() {
                         >
                             ←
                         </button>
-                        <strong className="capitalize text-sm font-semibold text-slate-800">
+                        <strong className="capitalize text-sm font-semibold text-white">
                             {mesActual.toLocaleString("es-CL", {month: "long", year: "numeric"})}
                         </strong>
                         <button
@@ -597,7 +597,7 @@ export default function CalendarioMensualHoras() {
 
                 <footer className="mt-10 text-center text-xs text-white/40">
                     <p>
-                        Odontología clínica integral con atención personalizada para cada paciente.
+                        Rehabilitación integral y terapias regenerativas con atención clínica personalizada.
                     </p>
                     <p className="mt-2 text-[11px] text-white/30">
                         Horarios: Lun-Sáb 9:00-22:00 | Dom Cerrado

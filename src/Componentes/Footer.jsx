@@ -71,7 +71,7 @@ export default function FooterRevitalize() {
     <footer className="bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] px-4 pb-8 pt-16 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl rounded-[2rem] border border-[#D4AF6A]/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.01)_100%)] p-7 shadow-[0_40px_78px_-50px_rgba(0,0,0,0.8)] sm:p-10">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <FooterColumn title="Empresa" links={companyLinks} />
+          <FooterColumn title="RaquiSystem" links={companyLinks} />
           <FooterColumn title="Ayuda" links={helpLinks} />
           <FooterColumn title="Servicios" links={serviceLinks} />
 
