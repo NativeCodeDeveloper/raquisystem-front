@@ -115,179 +115,154 @@ export default function Portada() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
       <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl flex-1 gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:items-stretch lg:gap-8 lg:px-10">
-        <article className="relative flex h-full min-h-[520px] flex-col justify-between overflow-hidden rounded-[2rem] border border-white/[0.11] bg-[linear-gradient(145deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.025)_100%)] p-6 shadow-[0_0_60px_-20px_rgba(0,0,0,0.6)] backdrop-blur-md sm:p-8 lg:col-span-5 lg:min-h-140 lg:p-10">
-          <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#D4AF6A]/15 blur-3xl" />
-          <div className="absolute -bottom-20 -left-10 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-7 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-10">
+        <article className="relative flex flex-col justify-center p-6 sm:p-8 lg:col-span-5 lg:p-10">
 
-          {/* Top: badge + h1 + descripción */}
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="h-px w-4 bg-[#D4AF6A]/60" />
-              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Centro de rehabilitación · Providencia</p>
-            </div>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-[3.2rem]">
+          {/* Badge */}
+          <div className="flex items-center gap-2">
+            <span className="h-px w-4 bg-[#D4AF6A]/60" />
+            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Centro de rehabilitación · Providencia</p>
+          </div>
+
+          {/* H1 + descripción */}
+          <div className="mt-6">
+            <h1 className="text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-[3.4rem]">
               Revitalize<span className="text-[#D4AF6A]"> Pro</span>
             </h1>
-            <p className="mt-3 text-sm font-light leading-7 text-white/60">
+            <p className="mt-4 max-w-sm text-[15px] font-light leading-7 text-white/60">
               Rehabilitación integral, manejo del dolor y regeneración de tejidos. Atención clínica personalizada en Santiago.
             </p>
           </div>
 
-          {/* Middle: CTA buttons */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          {/* CTAs */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/agendaProfesionales"
-              className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-7 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#07111c] shadow-[0_4px_20px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(135deg,#D4AF6A_0%,#C49A52_100%)] px-7 py-3.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#07111c] shadow-[0_4px_20px_-4px_rgba(212,175,106,0.45)] transition hover:brightness-110 sm:w-auto"
             >
               Agenda tu evaluación
             </Link>
             <Link
               href="/servicios"
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/[0.07] px-7 py-3 text-xs font-medium uppercase tracking-[0.14em] text-white/90 transition hover:border-white/40 hover:bg-white/12 sm:w-auto"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/20 px-7 py-3.5 text-xs font-medium uppercase tracking-[0.14em] text-white/80 transition hover:border-white/40 hover:text-white sm:w-auto"
             >
               Ver tratamientos
             </Link>
           </div>
 
-          {/* Bottom: stats */}
-          <div className="grid grid-cols-3 gap-2.5">
-            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
-              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Especialidad</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">Dolor y postquirúrgico</p>
+          {/* Stats */}
+          <div className="mt-10 grid grid-cols-3 gap-2.5">
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Especialidad</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">Dolor y postquirúrgico</p>
             </div>
-            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
-              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Soporte</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">TENS · Ondas · Presoterapia</p>
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Soporte</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">TENS · Ondas · Presoterapia</p>
             </div>
-            <div className="rounded-2xl border border-white/[0.09] bg-white/[0.03] p-3.5 transition hover:border-[#D4AF6A]/30 hover:bg-white/[0.05]">
-              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/45">Objetivo</p>
-              <p className="mt-2 text-[12px] font-medium leading-snug text-white/90">Mejora real del tejido</p>
+            <div className="rounded-2xl border border-white/10 bg-white/4 p-3.5">
+              <p className="text-[9px] font-medium uppercase tracking-[0.18em] text-white/40">Objetivo</p>
+              <p className="mt-2 text-[12px] font-medium leading-snug text-white/85">Mejora real del tejido</p>
             </div>
           </div>
         </article>
 
-        <article className="relative flex h-full flex-col lg:col-span-7">
-          <div className="relative mt-1 overflow-hidden rounded-[2rem] border border-white/14 bg-slate-900/20 md:hidden">
-            <div className="relative aspect-[16/10] w-full">
-              <img
-                src={imageErrors[mobileSlide.image] ? FALLBACK_IMAGE : mobileSlide.image}
-                alt={mobileSlide.alt}
-                className="absolute inset-0 h-full w-full object-cover object-center"
-                loading="lazy"
-                onError={() =>
-                  setImageErrors((current) => ({
-                    ...current,
-                    [mobileSlide.image]: true,
-                  }))
-                }
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,10,18,0.04)_0%,rgba(7,24,33,0.68)_100%)]" />
-              <div className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-[#0a1e2c]/80 p-4 backdrop-blur-md">
-                <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#D4AF6A]/90">{mobileSlide.badge}</p>
-                <h2 className="mt-2 text-xl font-semibold leading-tight text-white">{mobileSlide.title}</h2>
-                <p className="mt-1.5 text-sm leading-7 text-white/80">{mobileSlide.text}</p>
-              </div>
-            </div>
-          </div>
-
+        <article
+          className="relative flex flex-col justify-center lg:col-span-7"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
-            className="relative hidden flex-1 overflow-hidden rounded-[2rem] border border-white/14 bg-slate-900/20 md:block"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+            className="relative w-full overflow-hidden rounded-3xl"
+            style={{ minHeight: "clamp(320px, 52vh, 640px)" }}
           >
-            <div className="relative h-full min-h-[400px] w-full sm:min-h-[480px] lg:min-h-[540px]">
-              {slides.map((slide, index) => {
-                const isActive = index === activeIndex;
-                const hasError = imageErrors[slide.image];
-
-                return (
-                  <figure
-                    key={slide.id}
-                    className={[
-                      "absolute inset-0 transition-opacity duration-700 ease-out",
-                      isActive ? "opacity-100" : "pointer-events-none opacity-0",
-                    ].join(" ")}
-                  >
-                    <img
-                      src={hasError ? FALLBACK_IMAGE : slide.image}
-                      alt={slide.alt}
-                      className="absolute inset-0 h-full w-full object-cover object-center"
-                      loading={isActive ? "eager" : "lazy"}
-                      onError={() =>
-                        setImageErrors((current) => ({
-                          ...current,
-                          [slide.image]: true,
-                        }))
-                      }
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,10,18,0.05)_0%,rgba(7,24,33,0.76)_100%)]" />
-                  </figure>
-                );
-              })}
-
-              {slides.length > 1 && (
-                <div className="absolute left-4 right-4 top-4 flex items-center justify-between gap-2 sm:left-5 sm:right-5">
-                  <p className="rounded-full border border-white/28 bg-black/28 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/85">
-                    Imagen {activeIndex + 1} de {slides.length}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      aria-label="Slide anterior"
-                      onClick={goPrev}
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/28 bg-black/28 text-white transition hover:bg-black/44"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="Siguiente slide"
-                      onClick={goNext}
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/28 bg-black/28 text-white transition hover:bg-black/44"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/12 bg-[#07111c]/82 p-5 backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-6">
-                <div className="flex items-center gap-2">
-                  <span className="h-px w-4 bg-[#D4AF6A]/70" />
-                  <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#D4AF6A]/90">{currentSlide.badge}</p>
-                </div>
-                <h2 className="mt-3 text-2xl font-semibold leading-tight text-white sm:text-[1.9rem]">{currentSlide.title}</h2>
-                <p className="mt-2 text-sm leading-7 text-white/75 sm:text-[0.9rem]">{currentSlide.text}</p>
-              </div>
-            </div>
-          </div>
-
-          {slides.length > 1 && (
-            <div className="hide-scrollbar mt-4 hidden gap-2 overflow-x-auto pb-1 md:flex">
-              {slides.slice(0, 8).map((slide, index) => (
-                <button
+            {/* Slides */}
+            {slides.map((slide, index) => {
+              const isActive = index === activeIndex;
+              const hasError = imageErrors[slide.image];
+              return (
+                <figure
                   key={slide.id}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
                   className={[
-                    "relative w-20 shrink-0 overflow-hidden rounded-xl border transition sm:w-24",
-                    activeIndex === index
-                      ? "border-[#D4AF6A] shadow-[0_0_10px_-2px_rgba(212,175,106,0.5)]"
-                      : "border-white/15 hover:border-white/30",
+                    "absolute inset-0 transition-opacity duration-700 ease-out",
+                    isActive ? "opacity-100" : "pointer-events-none opacity-0",
                   ].join(" ")}
-                  aria-label={`Ir al slide ${index + 1}`}
                 >
                   <img
-                    src={imageErrors[slide.image] ? FALLBACK_IMAGE : slide.image}
+                    src={hasError ? FALLBACK_IMAGE : slide.image}
                     alt={slide.alt}
-                    className="h-16 w-full object-cover"
-                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    loading={isActive ? "eager" : "lazy"}
+                    onError={() =>
+                      setImageErrors((current) => ({
+                        ...current,
+                        [slide.image]: true,
+                      }))
+                    }
                   />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,10,18,0.10)_0%,rgba(7,24,33,0.82)_100%)]" />
+                </figure>
+              );
+            })}
+
+            {/* Side arrows */}
+            {slides.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Slide anterior"
+                  onClick={goPrev}
+                  className="absolute left-4 top-1/2 z-20 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm transition hover:border-[#D4AF6A]/60 hover:bg-[#D4AF6A]/20 hover:text-[#D4AF6A]"
+                >
+                  <ChevronLeft className="h-4 w-4" />
                 </button>
-              ))}
+                <button
+                  type="button"
+                  aria-label="Siguiente slide"
+                  onClick={goNext}
+                  className="absolute right-4 top-1/2 z-20 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm transition hover:border-[#D4AF6A]/60 hover:bg-[#D4AF6A]/20 hover:text-[#D4AF6A]"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </>
+            )}
+
+            {/* Dot indicators — vertical, right side */}
+            {slides.length > 1 && (
+              <div className="absolute right-4 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-1.5">
+                {slides.map((slide, index) => (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Ir al slide ${index + 1}`}
+                    className={[
+                      "rounded-full transition-all duration-300",
+                      activeIndex === index
+                        ? "h-5 w-1.5 bg-[#D4AF6A]"
+                        : "h-1.5 w-1.5 bg-white/40 hover:bg-white/70",
+                    ].join(" ")}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Bottom info overlay — floating on gradient, no card box */}
+            <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-7 pt-16 sm:px-8 sm:pb-8">
+              <div className="flex items-center gap-2">
+                <span className="h-px w-4 bg-[#D4AF6A]/80" />
+                <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-[#D4AF6A]">
+                  {currentSlide.badge}
+                </p>
+              </div>
+              <h2 className="mt-3 text-2xl font-semibold leading-tight text-white sm:text-[1.75rem]">
+                {currentSlide.title}
+              </h2>
+              <p className="mt-2 max-w-md text-sm leading-7 text-white/75">
+                {currentSlide.text}
+              </p>
             </div>
-          )}
+          </div>
         </article>
       </div>
     </section>
