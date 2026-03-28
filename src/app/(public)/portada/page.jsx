@@ -110,27 +110,30 @@ export default function Portada() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[linear-gradient(180deg,#07111c_0%,#091824_55%,#071420_100%)] py-16 pt-32 text-white md:pt-36"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#07111c] py-16 pt-32 text-white md:pt-36"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_10%,rgba(212,175,106,0.10),transparent_40%),radial-gradient(ellipse_at_88%_5%,rgba(14,165,233,0.13),transparent_38%),radial-gradient(ellipse_at_50%_100%,rgba(20,184,166,0.08),transparent_50%)]" />
-      <div className="premium-gridline pointer-events-none absolute inset-0 opacity-[0.12]" />
 
       <div className="relative mx-auto grid w-full max-w-7xl flex-1 items-center gap-8 px-5 sm:px-8 lg:grid-cols-12 lg:gap-12 lg:px-12">
         <article className="relative flex flex-col justify-center py-4 lg:col-span-5 lg:py-8">
 
-          {/* Badge */}
-          <div className="flex items-center gap-2">
-            <span className="h-px w-4 bg-[#D4AF6A]/60" />
-            <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-[#D4AF6A]">Centro de rehabilitación </p>
-          </div>
 
           {/* H1 + descripción */}
-          <div className="mt-6">
+          <div className="mt-3">
             <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-[4rem]">
               Revitalize<span className="text-[#D4AF6A]"> Pro</span>
             </h1>
-            <p className="mt-5 max-w-sm text-base font-light leading-8 text-white/60">
-              Rehabilitación integral, manejo del dolor y regeneración de tejidos. Atención clínica personalizada en Santiago.
+
+            <img 
+          src="/logopequeño.png" 
+          alt="logo raquisystem"
+          height={90}
+          width={90}
+          className="mt-4 object-center items-center justify-center mx-auto rounded-full"
+          />
+
+            <p className="mt-5 text-justify max-w-sm text-base font-light leading-8 text-white/60">
+              Rehabilitación integral, manejo del dolor y regeneración de tejidos, nuestra atención de calidad es lo que nuestros pacientes se merecen.
             </p>
           </div>
 
