@@ -62,7 +62,7 @@ export default function FormularioReservaProfesional() {
             const res = await fetch(`${API}/tarifasProfesional/seleccionarTarifasPorProfesional`, {
                 method: 'POST',
                 headers: {Accept: 'application/json',
-                'Content-Type': 'application/json',},
+                    'Content-Type': 'application/json',},
                 mode: 'cors',
                 body: JSON.stringify({profesional_id}),
             })
@@ -97,9 +97,113 @@ export default function FormularioReservaProfesional() {
 
 
 
-    // handleSubmit: se ejecuta al enviar el formulario
-    // Envía los datos al backend que crea la preferencia de Mercado Pago
-    async function pagarMercadoPago(
+    /*
+        async function pagarMercadoPago(
+           nombrePaciente,
+           apellidoPaciente,
+           rut,
+           telefono,
+           email,
+           fechaInicio,
+           horaInicio,
+           fechaFinalizacion,
+           horaFin,
+           totalPago,
+           profesionalSeleccionado,
+           servicioSeleccionado,
+           id_profesional
+       ) {
+           try {
+               if (!nombrePaciente || !apellidoPaciente || !rut || !telefono || !email || !fechaInicio || !horaInicio || !fechaFinalizacion || !horaFin || !id_profesional) {
+                   return toast.error("Debe completar toda la informacion para realizar la reserva")
+               }
+
+               if (totalPago <= 0) {
+                   return toast.error("Debe completar toda la informacion para realizar la reserva")
+               }
+
+               let horaFinalizacion = horaFin;
+
+               const res = await fetch(`${API}/pagosMercadoPago/create-order`, {
+                   method: "POST",
+                   headers: {
+                       Accept: "application/json",
+                       "Content-Type": "application/json"
+                   },
+                   body: JSON.stringify({
+                       tituloProducto: `Reserva Consulta: ${servicioSeleccionado} con ${profesionalSeleccionado}`,
+                       precio: Number(totalPago),
+                       cantidad: 1,
+                       nombrePaciente,
+                       apellidoPaciente,
+                       rut,
+                       telefono,
+                       email,
+                       fechaInicio,
+                       horaInicio,
+                       fechaFinalizacion,
+                       horaFinalizacion,
+                       estadoReserva : 'reservada',
+                       totalPago,
+                       id_profesional
+                   }),
+                   mode: "cors",
+               });
+
+               if (!res.ok) {
+                   return toast.error("No se puede procesar el pago por favor evalue otro medio de pago contactandonos por WhatsApp")
+               }
+
+               const data = await res.json();
+               console.log("Respuesta create-order:", data);
+
+               if (data) {
+
+                   //data.sandbox_init_point || PARA PRUEBAS LOCALES ||data?.init_point;
+                   const checkoutUrl = data?.init_point;
+                   console.log("checkoutUrl:", checkoutUrl);
+
+                   if (checkoutUrl) {
+                       console.log(checkoutUrl);
+                       window.location.href = checkoutUrl;
+
+                   } else {
+                       return toast.error("No se puede procesar el pago. Problema a nivel del Link de init poiunt")
+                   }
+               } else {
+                   return toast.error("No se puede procesar el pago. Intenet mas tarde.")
+
+               }
+           } catch (err) {
+               console.error(err);
+               return toast.error("No se puede procesar el pago por favor evalue otro medio de pago contactandonos por WhatsApp")
+
+           }
+       }
+
+    * */
+
+
+
+
+
+
+    id_profesional
+
+    function comprobanteAgendamiento() {
+        setNombrePaciente("");
+        setApellidoPaciente("");
+        setDescripcionProfesional("");
+        setRut("");
+        setTelefono("");
+        setEmail("");
+        router.push(`/reserva-hora?fecha=${fechaInicio}&hora=${horaInicio}`);
+    }
+
+
+
+
+    async function agendarSinPago(
         nombrePaciente,
         apellidoPaciente,
         rut,
@@ -108,33 +212,21 @@ export default function FormularioReservaProfesional() {
         fechaInicio,
         horaInicio,
         fechaFinalizacion,
-        horaFin,
-        totalPago,
-        profesionalSeleccionado,
-        servicioSeleccionado,
+        horaFinalizacion,
         id_profesional
-    ) {
+    ){
         try {
-            if (!nombrePaciente || !apellidoPaciente || !rut || !telefono || !email || !fechaInicio || !horaInicio || !fechaFinalizacion || !horaFin || !id_profesional) {
-                return toast.error("Debe completar toda la informacion para realizar la reserva")
+
+            if (!nombrePaciente || !apellidoPaciente || !rut || !telefono || !email || !fechaInicio || !horaInicio || !horaFinalizacion || !id_profesional) {
+                toast.error('Debe llenar todos los campos');
+                return false;
             }
 
-            if (totalPago <= 0) {
-                return toast.error("Debe completar toda la informacion para realizar la reserva")
-            }
-
-            let horaFinalizacion = horaFin;
-
-            const res = await fetch(`${API}/pagosMercadoPago/create-order`, {
+            const res = await fetch(`${API}/reservaPacientes/insertarReservaPacienteFicha`, {
                 method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                },
+                headers: {Accept: "application/json", "Content-Type": "application/json"},
+                mode: "cors",
                 body: JSON.stringify({
-                    tituloProducto: `Reserva Consulta: ${servicioSeleccionado} con ${profesionalSeleccionado}`,
-                    precio: Number(totalPago),
-                    cantidad: 1,
                     nombrePaciente,
                     apellidoPaciente,
                     rut,
@@ -144,45 +236,22 @@ export default function FormularioReservaProfesional() {
                     horaInicio,
                     fechaFinalizacion,
                     horaFinalizacion,
-                    estadoReserva : 'reservada',
-                    totalPago,
-                    id_profesional
-                }),
-                mode: "cors",
+                    estadoReserva: "reservada" ,
+                    id_profesional})
             });
 
-            if (!res.ok) {
-                return toast.error("No se puede procesar el pago por favor evalue otro medio de pago contactandonos por WhatsApp")
+            if (!res.ok) return toast.error('Hubo un problema, intente agendar por otro medio');
+
+            const respuestaBackend = await res.json();
+
+            if(respuestaBackend.message === true){
+                comprobanteAgendamiento();
+                return toast.success('Cita Agendada');
             }
-
-            const data = await res.json();
-            console.log("Respuesta create-order:", data);
-
-            if (data) {
-
-                //data.sandbox_init_point || PARA PRUEBAS LOCALES ||data?.init_point;
-                const checkoutUrl = data?.init_point;
-                console.log("checkoutUrl:", checkoutUrl);
-
-                if (checkoutUrl) {
-                    console.log(checkoutUrl);
-                    window.location.href = checkoutUrl;
-
-                } else {
-                    return toast.error("No se puede procesar el pago. Problema a nivel del Link de init poiunt")
-                }
-            } else {
-                return toast.error("No se puede procesar el pago. Intenet mas tarde.")
-
-            }
-        } catch (err) {
-            console.error(err);
-            return toast.error("No se puede procesar el pago por favor evalue otro medio de pago contactandonos por WhatsApp")
-
+        }catch (error) {
+            return toast.error('Hubo un problema, intente agendar por otro medio');
         }
     }
-
-
 
     const formatoCLP = new Intl.NumberFormat("es-CL", {
         style: "currency",
@@ -347,7 +416,7 @@ export default function FormularioReservaProfesional() {
                     {/* Acciones */}
                     <div className="flex flex-col-reverse gap-3 border-t border-slate-100 pt-6 sm:flex-row sm:justify-end">
 
-                            <ShadcnButton2 nombre={"RETROCEDER"} funcion={()=>volver(id_profesional)}/>
+                        <ShadcnButton2 nombre={"RETROCEDER"} funcion={()=>volver(id_profesional)}/>
 
                         <ShadcnButton2
                             nombre={"FINALIZAR"}
@@ -355,7 +424,7 @@ export default function FormularioReservaProfesional() {
                                 if (e?.preventDefault) e.preventDefault();
                                 if (e?.stopPropagation) e.stopPropagation();
 
-                                return pagarMercadoPago(
+                                return agendarSinPago(
                                     nombrePaciente,
                                     apellidoPaciente,
                                     rut,
@@ -365,9 +434,6 @@ export default function FormularioReservaProfesional() {
                                     horaInicio,
                                     fechaFinalizacion,
                                     horaFin,
-                                    totalPago,
-                                    profesionalSeleccionado,
-                                    servicioSeleccionado,
                                     id_profesional
                                 );
                             }}
